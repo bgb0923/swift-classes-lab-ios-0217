@@ -16,8 +16,15 @@ class Thermometer {
     
     var fahrenheit : Double
     
-    var celsius : Double{
-        return fahrenheit - 32 * (5 / 9)
+    var celsius : Double {
+        
+        get {
+            return ((fahrenheit - 32) * (5 / 9))
+        }
+        
+        set {
+            fahrenheit = (newValue) * (9 / 5) + 32
+        }
     }
     
     var description : String {
@@ -73,7 +80,7 @@ assert(thermometer.celsius - 37.7 < 0.1, "thermometer.celsius is \(thermometer.c
  
  Now set the `celsius` temperature of your `Thermometer` instance to 100.0
  */
-
+thermometer.celsius = 100.0
 
 assert(thermometer.celsius == 100.0, "thermometer.celsius is \(thermometer.celsius)")
 assert(thermometer.fahrenheit == 212.0, "thermometer.fahrenheit is \(thermometer.fahrenheit)")
